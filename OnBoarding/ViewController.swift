@@ -16,7 +16,9 @@ class ViewController: UIViewController {
     
     var dataSource: [OnBoarding] = [OnBoarding(image: #imageLiteral(resourceName: "onboarding1"), heading: "Get it done..!!", description: "Lets get it done. Stop imagining and start performing from today. you can get ahead with our help."),
         OnBoarding(image: #imageLiteral(resourceName: "onboarding3"), heading: "Get it done..!!", description: "Lets get it done. Stop imagining and start performing from today. you can get ahead with our help."),
-        OnBoarding(image: #imageLiteral(resourceName: "onboarding2"), heading: "Get it done..!!", description: "Lets get it done. Stop imagining and start performing from today. you can get ahead with our help.")]
+        OnBoarding(image: #imageLiteral(resourceName: "onboarding2"), heading: "Get it done..!!", description: "Lets get it done. Stop imagining and start performing from today. you can get ahead with our help."),
+        OnBoarding(image: #imageLiteral(resourceName: "onboarding1"), heading: "Get it done..!!", description: "Lets get it done. Stop imagining and start performing from today. you can get ahead with our help."),
+        OnBoarding(image: #imageLiteral(resourceName: "onboarding3"), heading: "Get it done..!!", description: "Lets get it done. Stop imagining and start performing from today. you can get ahead with our help.")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +35,6 @@ class ViewController: UIViewController {
     
     @IBAction func skipButtonTapped(_ sender: Any) {
     }
-    
 }
 
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -55,8 +56,12 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0.0
     }
-
-    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         pageControl.currentPage = indexPath.item
     }
 }
